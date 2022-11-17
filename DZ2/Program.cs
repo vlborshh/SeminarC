@@ -3,10 +3,6 @@ Console.WriteLine("Задача 2: Напишите программу, кото
 Console.WriteLine("Задача 3: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.");
 Console.Write("Выберите задачу и введите ее порядковый номер: ");
 int number = Convert.ToInt32(Console.ReadLine());
-// int numA = 0;
-// int numB = 0;
-// int numC = 0;
-// int num = 0;
 
 switch (number)
 {
