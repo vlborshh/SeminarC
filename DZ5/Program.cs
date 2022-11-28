@@ -11,11 +11,22 @@ Console.WriteLine("          минимальным элементов масс�
 Console.Write("Выберите задачу и введите ее порядковый номер: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int num2 = 0;
-int num = 0;
 int size = 0;
-
 int count = 0;
+
+int[] Mass(int ii)
+{
+    int[] mass = new int[ii];
+
+    for (int i = 0; i < ii; i++)
+    {
+        // в задании сказано задать массив из случайных чисел, но все таки
+        // ограничим его некоторыми рамками
+        mass[i] = new Random().Next(-500, 501);
+        Console.Write($"{mass[i]} ");
+    }
+    return mass;
+}
 
 switch (number)
 {
@@ -25,7 +36,6 @@ switch (number)
         Console.Write("Введите размер массива: ");
         size = Convert.ToInt32(Console.ReadLine());
         int[] arr = new int[size];
-
         for (int i = 0; i < size; i++)
         {
             arr[i] = new Random().Next(100, 1000);
@@ -44,19 +54,13 @@ switch (number)
         //          значения которых лежат в отрезке[10, 99].
         size = 123;
         int[] array = new int[size];
-
-
+        array = Mass(size);
         for (int i = 0; i < size; i++)
         {
-            // в задании сказано задать массив из случайных чисел, но все таки
-            // ограничим его некоторыми рамками
-            array[i] = new Random().Next(-500, 501);
-            Console.Write($"{array[i]} ");
             if (array[i] >= 10 & array[i] <= 99)
             {
                 count++;
             }
-
         }
         Console.WriteLine();
         Console.Write($"Количество элементов: {count}");
@@ -70,13 +74,7 @@ switch (number)
         int[] mass = new int[size];
         count = 1;
         int sum = 0;
-        for (int i = 0; i < size; i++)
-        {
-            // в задании сказано задать массив из случайных чисел, но все таки
-            // ограничим его некоторыми рамками
-            mass[i] = new Random().Next(-500, 501);
-            Console.Write($"{mass[i]} ");
-        }
+        mass = Mass(size);
         while (count < mass.Length)
         {
             sum = sum + mass[count];
@@ -100,16 +98,13 @@ switch (number)
             Console.Write($"{doublearray[i]} ");
         }
         double min = doublearray[0];
+        double max = doublearray[0];
         for (int i = 1; i < size; i++)
         {
             if (min > doublearray[i])
             {
                 min = doublearray[i];
             }
-        }
-        double max = doublearray[0];
-        for (int i = 1; i < size; i++)
-        {
             if (max < doublearray[i])
             {
                 max = doublearray[i];
@@ -117,8 +112,9 @@ switch (number)
         }
 
         Console.WriteLine();
-        Console.Write($"Min = {min}, max = {max}. Max - min = {max - min}");
+        Console.Write($"Min = {min}, max = {max}. Max - min = {Math.Round((max - min), 2)}");
         break;
+
     default:
         Console.Write("Задачи с таким номером нет");
         break;
