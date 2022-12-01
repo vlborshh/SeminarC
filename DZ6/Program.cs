@@ -9,7 +9,7 @@ int number = Convert.ToInt32(Console.ReadLine());
 string str;
 int count = 0;
 
-void NumberВigits(int num1)
+void NumberDigits(int num1)
 {
     if (num1 > 0)
     {
@@ -77,7 +77,7 @@ switch (number)
         //Напишите программу для подсчета количества цифр в числе с помощью рекурсии.
         Console.Write("Введите число : ");
         number = Convert.ToInt32(Console.ReadLine());
-        NumberВigits(Math.Abs(number));
+        NumberDigits(Math.Abs(number));
         break;
 
     default:
